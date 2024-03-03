@@ -24,17 +24,17 @@ export default function ProductDetails() {
   }, []);
   console.log(productDetails, "productdetails");
   return (
-    <div className="mt-10 flex gap-10 px-10 py-5 h-screen">
-      <div className="w-1/2">
+    <div className="mt-10 flex flex-col sm:flex-row gap-10 px-5 sm:px-10 py-5 h-auto sm:h-screen">
+      <div className="w-full sm:w-1/2">
         <div>
           <img
             src={productDetails.image}
-            className=" w-[36rem] h-[38rem] rounded-sm"
+            className="w-full h-auto sm:w-[36rem] sm:h-[38rem] rounded-sm"
             alt="food image"
           />
         </div>
       </div>
-      <div className="w-1/2 flex flex-col gap-4">
+      <div className="w-full sm:w-1/2 flex flex-col gap-4">
         <div className="flex gap-3 items-center mb-2">
           <h1 className="text-2xl font-bold text-zinc-300">
             {productDetails.title}
@@ -62,7 +62,7 @@ export default function ProductDetails() {
           </span>
         </div>
         <button
-          className="w-40 flex justify-center gap-2 border rounded-sm py-3 text-zinc-900 bg-zinc-200 hover:bg-zinc-300  font-semibold"
+          className="w-full sm:w-40 flex justify-center gap-2 border rounded-sm py-3 text-zinc-900 bg-zinc-200 hover:bg-zinc-300  font-semibold"
           type="button"
           onClick={() => {
             handleAddToCart(productDetails);
@@ -70,49 +70,6 @@ export default function ProductDetails() {
         >
           Add to cart
         </button>
-        {/* <div className="flex gap-2  ">
-          <div className="w-1/3 ">
-            {found && found.quantity ? (
-              <div className="flex items-center gap-1 border justify-center py-2 w-full rounded-md">
-                <BaseButton
-                  className="bg-neutral-100 p-1"
-                  onClick={() => {
-                    decrementQuantity(dishDetails);
-                  }}
-                >
-                  <BaseIcon
-                    className="h-5 w-5  flex"
-                    iconName={ICONS.Minus}
-                  ></BaseIcon>
-                </BaseButton>
-
-                <span className="p-1">{found && found.quantity}</span>
-                <BaseButton
-                  className="bg-neutral-100 p-1"
-                  onClick={() => {
-                    addToCart(dishDetails);
-                  }}
-                >
-                  <BaseIcon
-                    className="h-5 w-5 flex"
-                    iconName={ICONS.Plus}
-                  ></BaseIcon>
-                </BaseButton>
-              </div>
-            ) : (
-              <BaseButton
-                className="w-full flex justify-center gap-2 border rounded-md py-3 bg-teal-500 hover:bg-teal-700 text-white font-semibold"
-                type="button"
-                onClick={() => {
-                  addToCart(dishDetails);
-                }}
-              >
-                Add to cart
-              </BaseButton>
-            )}
-          </div>
-          
-        </div> */}
       </div>
     </div>
   );

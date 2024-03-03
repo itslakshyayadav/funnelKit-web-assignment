@@ -1,5 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { HiMiniPlusSmall, HiMiniMinusSmall } from "react-icons/hi2";
+import {
+  HiMiniPlusSmall,
+  HiMiniMinusSmall,
+  HiMiniXMark,
+  HiOutlineArrowLongLeft,
+} from "react-icons/hi2";
 import cartImg from "./assets/cartImg.png";
 import {
   removeFromCart,
@@ -32,7 +37,7 @@ export default function Cart() {
     dispatch(clearCart());
   };
   return (
-    <div className="mt-14 h-screen text-zinc-300">
+    <div className="h-screen text-zinc-300 sm:flex sm:flex-col sm:justify-center sm:items-center">
       {cart && cart.cartItems.length === 0 ? (
         <div className="flex flex-col gap-5 justify-center items-center">
           <h1 className="text-3xl">Your cart Item is empty</h1>
@@ -40,17 +45,18 @@ export default function Cart() {
           <img src={cartImg} alt="" />
           <Link
             to="/"
-            className="px-5 mt-8 py-2 text-2xl border border-zinc-500 bg-zinc-700 hover:bg-zinc-800"
+            className="px-5 mt-8 py-2 flex items-center gap-2 text-2xl border border-zinc-500 bg-zinc-700 hover:bg-zinc-800"
           >
+            <HiOutlineArrowLongLeft className="flex h-8 w-8" />
             Start Shopping
           </Link>
         </div>
       ) : (
         <>
           <h1 className="py-8 text-2xl px-3">Shopping Cart</h1>
-          <div className="flex">
-            <div className="w-3/4 flex flex-col gap-5 border-r border-zinc-500 px-4 ">
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 ">
+          <div className="flex flex-col sm:flex-row">
+            <div className="w-full sm:w-3/4 flex flex-col gap-5 border-r border-zinc-500 px-4 ">
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 ">
                 {cart.cartItems.map((cartItem, index) => {
                   return (
                     <div
@@ -59,11 +65,13 @@ export default function Cart() {
                     >
                       <div className="flex gap-6">
                         <div>
-                          <img
-                            src={cartItem.image}
-                            className="w-40 h-40 object-cover shrink-0 "
-                            alt=""
-                          />
+                          <Link to={`/products/${cartItem.id}`}>
+                            <img
+                              src={cartItem.image}
+                              className="w-40 h-40 object-cover shrink-0 "
+                              alt=""
+                            />
+                          </Link>
                         </div>
                         <div className="flex flex-col justify-center gap-3">
                           <h1 className="flex gap-2">
@@ -84,7 +92,7 @@ export default function Cart() {
                               <button
                                 type="button"
                                 onClick={() => handelDecreaseQuantity(cartItem)}
-                                className=" px-2 border"
+                                className="px-2 border"
                               >
                                 <HiMiniMinusSmall className="flex h-5 w-5"></HiMiniMinusSmall>
                               </button>
@@ -107,12 +115,19 @@ export default function Cart() {
                           </h1>
                         </div>
                       </div>
+                      {/* <button
+                        type="button"
+                        onClick={() => handelRemoveFromCart(cartItem)}
+                        className="absolute right-3 bottom-3 px-3 py-2 text-sm text-center text-zinc-900 bg-zinc-300 rounded-sm hover:bg-zinc-400  "
+                      >
+                        Remove
+                      </button> */}
                       <button
                         type="button"
                         onClick={() => handelRemoveFromCart(cartItem)}
-                        className="absolute right-3 bottom-3 px-4 py-2 text-sm text-center text-zinc-900 bg-zinc-300 rounded-sm hover:bg-zinc-400"
+                        className="absolute right-2 bottom-0 px-3 py-2 text-sm text-center"
                       >
-                        Remove
+                        <HiMiniXMark className="flex h-5 w-5 text-zinc-300" />
                       </button>
                     </div>
                   );
@@ -121,12 +136,12 @@ export default function Cart() {
               <button
                 type="button"
                 onClick={() => handelClearCart()}
-                className=" px-4 py-2 text-sm text-center w-28 text-zinc-900 bg-zinc-300 rounded-sm hover:bg-zinc-400"
+                className=" px-4 py-2 text-sm text-center w-full sm:w-28 text-zinc-900 bg-zinc-300 rounded-sm hover:bg-zinc-400"
               >
                 Clear cart
               </button>
             </div>
-            <div className="w-3/12 py-5 flex flex-col gap-3 px-10">
+            <div className="w-full sm:w-3/12 py-5 flex flex-col gap-3 px-10">
               <h1 className="text-xl py-3">Cart totals</h1>
               <div className="flex justify-between items-center border-t border-b text-sm py-4 text-zinc-300">
                 <h2>Total</h2>
@@ -149,3 +164,12 @@ export default function Cart() {
   );
 }
 //
+{
+  /* <button
+type="button"
+onClick={() => handelRemoveFromCart(cartItem)}
+className="absolute right-3 bottom-3 px-3 py-2 text-sm text-center  "
+>
+<HiMiniXMark className="flex h-5 w-5 text-zinc-300" />
+</button> */
+}
