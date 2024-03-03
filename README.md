@@ -1,8 +1,27 @@
-# React + Vite
+# FunnelKit Web Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project Preview
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Dashboard
+
+![Image](./src/assets/project-screenshot/dashboard.png)
+
+</br>
+
+### Product Details
+
+![Image](./src/assets/project-screenshot/product-detail.png)
+
+</br>
+
+### Cart Dashboard
+
+![Image](./src/assets/project-screenshot/cart-dashboard.png)
+
+</br>
+
+### Empty Cart
+
+![Image](./src/assets/project-screenshot/empty-cart.png)
