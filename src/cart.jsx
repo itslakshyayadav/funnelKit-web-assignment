@@ -37,7 +37,7 @@ export default function Cart() {
     dispatch(clearCart());
   };
   return (
-    <div className="min-h-screen text-zinc-300 sm:flex sm:flex-col sm:justify-center sm:items-center">
+    <div className="min-h-screen text-zinc-300 sm:flex flex-col">
       {cart && cart.cartItems.length === 0 ? (
         <div className="flex flex-col gap-5 justify-center items-center">
           <h1 className="text-3xl">Your cart Item is empty</h1>
