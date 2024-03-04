@@ -8,7 +8,7 @@ function Root() {
     <div>
       <ToastContainer></ToastContainer>
       <BaseNavbar></BaseNavbar>
-      <div className="container mx-auto px-6 md:p-12">
+      <div className="container mx-auto mt-20 px-6">
         <Outlet />
       </div>
     </div>

@@ -19,11 +19,11 @@ const cartSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
-        alert("increase product quantity");
+        // alert("increase product quantity");
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(tempProduct);
-        alert("product added in cart");
+        // alert("product added in cart");
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
