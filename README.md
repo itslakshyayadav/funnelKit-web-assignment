@@ -23,7 +23,7 @@ npm run dev
 ```
 
 The server would start at http://localhost:5173/
-Go to broswer and enter this URL.
+Go to browser and enter this URL.
 
 # Project Preview
 

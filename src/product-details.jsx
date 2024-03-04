@@ -24,7 +24,7 @@ export default function ProductDetails() {
   }, []);
   console.log(productDetails, "productdetails");
   return (
-    <div className="mt-10 flex flex-col sm:flex-row gap-10 px-5 sm:px-10 py-5 h-auto sm:h-screen">
+    <div className="mt-10 flex flex-col sm:flex-row gap-10 px-5 sm:px-10 py-5 h-auto min-h-screen">
       <div className="w-full sm:w-1/2">
         <div>
           <img
